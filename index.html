@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Loděnice · natáčení B</title>
+<style>
+@font-face{font-family:Switzer;src:url(font/Switzer-Variable.ttf) format("truetype");font-weight:100 900}
+:root{--ink:#16130f;--paper:#f6f1e8;--card:#fffdf8;--line:#e2d9c8;--mute:#6f675b;--wine:#7a1f2b;--gold:#b08a4a;--ok:#2f7a4f;--okbg:#e6f1e9}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 16px/1.45 Switzer,-apple-system,"Helvetica Neue",Arial,sans-serif}
+.wrap{max-width:900px;margin:0 auto;padding:0 16px 70px}
+.tabs{position:sticky;top:0;z-index:10;display:flex;gap:6px;overflow-x:auto;background:rgba(246,241,232,.97);margin:0 -16px;padding:10px 16px;border-bottom:1px solid var(--line);scrollbar-width:none}
+.tabs::-webkit-scrollbar{display:none}
+.tabs button{flex:none;font:inherit;font-size:15px;font-weight:600;border:1.5px solid var(--ink);background:#fff;color:var(--ink);border-radius:99px;padding:8px 14px;cursor:pointer}
+.tabs button.on{background:var(--ink);color:#fff}
+.tabs .pdf{margin-left:auto;text-decoration:none;color:var(--mute);font-size:14px;align-self:center;white-space:nowrap}
+.pnl{display:none;padding-top:14px}
+.pnl.on{display:block}
+.eyebrow{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--wine);font-weight:600}
+h2{font-weight:700;font-size:27px;line-height:1.15;margin:4px 0 2px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.poc{color:var(--mute);margin:0 0 8px;font-size:14.5px}
+.oco{font-size:16.5px;margin:0 0 8px}
+.meta{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 12px}
+.meta span{border:1px solid var(--line);background:var(--card);border-radius:99px;padding:3px 10px;font-size:13px}
+.vb{display:inline-block;font-size:12px;font-weight:700;border-radius:5px;padding:2px 7px;color:#fff;vertical-align:1px}
+h2 .vb{font-size:16px;padding:3px 9px}
+.vb.s2{background:#9a6b1f}.vb.f1{background:#c0561b}.vb.f2{background:#111;color:#8fe39a}
+.kap{display:grid;grid-template-columns:200px 1fr;gap:12px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px;margin:8px 0}
+.kap img,.kap .noimg{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:8px;display:block;background:#e9e1d3}
+.kap h3{margin:0 0 3px;font-size:17px;display:flex;align-items:center;gap:8px}
+.kn{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:50%;background:var(--ink);color:#fff;font-size:13.5px;flex:none}
+.kap p{margin:0 0 5px;font-size:15px}
+.say{border-left:4px solid var(--wine);background:#fbf0f1;border-radius:0 8px 8px 0;padding:5px 10px;margin:5px 0;font-size:15.5px;font-weight:500}
+.say .who{display:block;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--wine);font-weight:800}
+.vanda{color:#4a4038;font-style:italic}
+.nat{color:#3a332a}.nat b{color:var(--ink)}
+.ref{color:var(--wine);font-weight:600;white-space:nowrap}
+h4{font-size:14px;letter-spacing:.12em;text-transform:uppercase;color:var(--mute);margin:16px 0 6px}
+.harm{width:100%;border-collapse:collapse;background:var(--card);border:1px solid var(--line);font-size:14.5px}
+.harm th,.harm td{text-align:left;padding:6px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+.harm th{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--mute)}
+.harm .t{font-weight:700;white-space:nowrap}.harm .rr{white-space:nowrap;color:var(--mute)}
+.harm .vb{margin-right:3px}
+.tag{display:inline-block;font-size:11px;font-weight:700;border-radius:5px;padding:1px 6px;color:#fff;background:#8a8275;margin-left:4px;vertical-align:1px}
+.tag.d{background:#d9a441;color:#1d1606}.tag.n{background:#3b4a6b}.tag.u{background:var(--wine)}
+.rules{font-size:14px;color:#3a332a;margin:8px 0 0}
+.prog{font-weight:700;margin-left:auto;font-size:14px;white-space:nowrap}
+.blk{display:flex;align-items:center;gap:8px;background:var(--ink);color:#fff;border-radius:10px;padding:7px 12px;margin:14px 0 4px}
+.bt{font-weight:800}.bk{font-weight:600}
+.sl{display:grid;grid-template-columns:1fr auto;gap:2px 10px;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:8px 10px;margin:4px 0}
+.sl label{display:flex;gap:10px;align-items:flex-start;cursor:pointer}
+.sl input{flex:none;appearance:none;-webkit-appearance:none;width:28px;height:28px;margin:0;border:2.5px solid var(--ink);border-radius:7px;background:#fff;display:grid;place-content:center;cursor:pointer}
+.sl input:checked{background:var(--ok);border-color:var(--ok)}
+.sl input:checked:after{content:"";width:8px;height:14px;border:solid #fff;border-width:0 3px 3px 0;transform:translateY(-2px) rotate(45deg)}
+.sl .n{font-weight:700;color:var(--wine);min-width:22px;padding-top:3px}
+.sl .tx{font-size:15.5px;padding-top:2px}
+.sl .rf{display:flex;gap:4px;align-items:flex-start;flex-wrap:wrap;justify-content:flex-end;padding-top:3px}
+.sl .rf i{font-style:normal;font-size:11px;font-weight:700;color:var(--mute);margin:2px 4px 0 1px}
+.sl .say,.sl .alt{grid-column:1/-1;margin-left:70px}
+.alt{font-size:13.5px;color:#5a4547}
+.alt summary{cursor:pointer;color:var(--wine);font-weight:600}
+.alt p{margin:3px 0}
+.p{display:inline-block;font-size:11px;font-weight:700;border-radius:5px;padding:2px 6px;color:#fff}
+.p.h{background:var(--wine)}.p.k{background:#2f6b4f}.p.x{background:#8a8275}.p.f{background:#4d6a86}
+.sl.done{background:var(--okbg)}
+.sl.done .tx{text-decoration:line-through;color:#5b6b60}
+.sl.done .say,.sl.done .alt{opacity:.5}
+.foot{margin-top:24px;font-size:12px;color:var(--mute)}
+@media (max-width:640px){
+  .kap{grid-template-columns:1fr}
+  h2{font-size:23px}
+  .sl{grid-template-columns:1fr}
+  .sl .rf{justify-content:flex-start;margin-left:70px}
+  .sl .say,.sl .alt{margin-left:0}
+}
+@media print{
+  @page{size:A4;margin:9mm 10mm}
+  body{background:#fff;font-size:9pt}
+  .wrap{max-width:none;padding:0}
+  .tabs,.alt,.noprint{display:none!important}
+  .pnl{display:block!important;padding-top:0;break-before:page}
+  .pnl:first-of-type{break-before:auto}
+  h2{font-size:17pt;margin:2px 0 0}.poc{font-size:8.5pt;margin-bottom:3px}.oco{font-size:9.5pt;margin-bottom:4px}
+  .meta{margin-bottom:5px}.meta span{font-size:8pt;padding:1px 7px}
+  .kap{grid-template-columns:44mm 1fr;gap:8px;padding:5px 7px;margin:4px 0;break-inside:avoid}
+  .kap h3{font-size:10.5pt;margin-bottom:1px}.kn{width:18px;height:18px;font-size:8.5pt}
+  .kap p{font-size:8.8pt;margin-bottom:2px}
+  .say{font-size:9pt;padding:2px 7px;margin:2px 0}.say .who{font-size:6.5pt}
+  .harm{font-size:8.5pt}.harm th,.harm td{padding:2px 6px}
+  h4{margin:6px 0 3px;font-size:8pt}
+  .rules{font-size:8.5pt;margin-top:3px}
+  .blk{padding:2px 8px;margin:5px 0 2px;border-radius:5px;break-after:avoid}
+  .sl{padding:2px 7px;margin:2px 0;border-radius:5px;break-inside:avoid}
+  .sl input{width:12px;height:12px;border-width:1.5px;border-radius:2px}
+  .sl .n{padding-top:0;min-width:16px}.sl .tx{font-size:8.6pt;padding-top:0}
+  .sl .say{margin-left:44px;font-size:8.4pt;padding:1px 6px}
+  .sl .rf{padding-top:0}
+  .slw{columns:2;column-gap:5mm}
+  .blk{break-inside:avoid;font-size:8.5pt}
+  .sl{display:block;padding:2px 5px}.sl label{display:inline-flex;gap:5px}
+  .sl .rf{display:inline-flex;margin-left:4px;vertical-align:1px}.sl .rf .vb,.sl .rf .p{font-size:6.5pt;padding:0 4px}
+  .sl .say{margin:1px 0 0 28px;font-size:8pt}
+  .sl .tx{font-size:8.3pt}
+  .vb,.p,.tag,.blk,.kn,.say,.harm th{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
+.p.s{background:#7a5a1f}.tc{font-size:13px;font-weight:600;color:var(--mute);margin-left:4px}.mute{color:var(--mute);font-weight:400}.reset{font:inherit;font-size:12px;border:1px solid var(--line);background:#fff;border-radius:99px;padding:3px 10px;cursor:pointer;color:var(--mute)}.adr{border:1px solid var(--line);border-radius:10px;padding:10px 14px;margin:10px 0 4px;background:#fff;line-height:1.55}.adr a{font-weight:600}</style>
+</head>
+<body>
+<div class="wrap">
+<nav class="tabs"><button type="button" data-t="SL">Shotlist</button><button type="button" data-t="F">Film</button><button type="button" data-t="V">Vizualizace</button></nav>
+<section class="pnl" data-tab="SL"><div class="eyebrow">Loděnice · RD První 29 · varianta B · PORTA INVEST</div><h2>Harmonogram a shotlist <span id="prog" class="prog noprint"></span></h2><div class="adr"><b>První 29, 267 12 Loděnice</b> (část Jánská, okres Beroun) · GPS 49.98961, 14.15246<br><a href="https://mapy.cz/zakladni?q=Prvn%C3%AD%2029%2C%20Lod%C4%9Bnice" target="_blank" rel="noopener">Mapy.cz</a> · <a href="https://www.google.com/maps/search/?api=1&query=49.98961,14.15246" target="_blank" rel="noopener">Google Maps</a> · makléř Tomáš Svoreň <a href="tel:+420734441455">+420 734 441 455</a></div><p class="rules"><b>Čtvrtek 29. 10. od 13:00, konec nejpozději v 16:00 dronem.</b> Majitel je tam od 12:00. Dům má být prázdný a uklizený i se zahradou, listí přes noc nevadí, z fotek ho uklidíme. Počasí: bez srážek, 11 °C, oblačno 60–70 %, od 15:00 kolem 50 %, vítr 2 m/s, nárazy do 5 m/s. Uliční fasáda míří na VJV (119°) a je celé odpoledne ve stínu; zahrada na ZSZ (299°) je na slunci zhruba 13:40–15:30, pak ji stíní stromy. Slunce 13:00 200°/25° · 14:00 215°/20° · 15:00 228°/14° · 16:00 241°/6°, západ 16:47. Před záběrem nahlas číslo řádku. VIZ: stativ 15 s bez pohybu (u dronu 5 s statický rám), nikdo v záběru. <b>Když je zataženo:</b> interiér jede vždycky, zahradu a hero počkat na slunce, dron na konec.</p><h4>Harmonogram</h4><table class="harm"><thead><tr><th>Čas</th><th>Kde</th><th>Řádky</th></tr></thead><tbody><tr><td class="t">13:00</td><td>Příjezd a obchůzka s majitelem</td><td class="rr">1–4</td></tr><tr><td class="t">13:10</td><td>Zimní zahrada a pokoje do zahrady <span class="tag n">DŘÍV, NEŽ DO NICH ZASVÍTÍ</span></td><td class="rr">5–10</td></tr><tr><td class="t">13:40</td><td>Přízemí <span class="tag ">INTERIÉR</span></td><td class="rr">11–17</td></tr><tr><td class="t">14:10</td><td>Podkroví <span class="tag ">INTERIÉR</span></td><td class="rr">18–22</td></tr><tr><td class="t">14:30</td><td>Zahrada ve slunci <span class="tag d">SLUNCE ZE JZ, NÍZKO</span></td><td class="rr">23–29</td></tr><tr><td class="t">15:15</td><td>Uliční strana <span class="tag n">STÍN, ROVNOMĚRNĚ</span></td><td class="rr">30–33</td></tr><tr><td class="t">15:35</td><td>Dron nad Loděnicemi <span class="tag d">POSLEDNÍ, DO 16:00</span></td><td class="rr">34–37</td></tr><tr><td class="t">16:00</td><td>Konec</td><td class="rr"></td></tr></tbody></table><h4>Shotlist · F/4 = film, kapitola 4 <button type="button" id="reset" class="reset noprint">vynulovat</button></h4><div class="slw"><div class="blk"><span class="bt">13:00</span><span class="bk">Příjezd a obchůzka s majitelem</span></div>
+<div class="sl" data-id="r1"><label><input type="checkbox" data-id="r1"><span class="n">1</span><span class="tx">Kamera i dron 4K, 25 fps. Před každým záběrem nahlas číslo řádku</span></label><span class="rf"><span class="p x">PŘÍPRAVA</span></span></div>
+<div class="sl" data-id="r2"><label><input type="checkbox" data-id="r2"><span class="n">2</span><span class="tx">Obchůzka: všechny místnosti odemčené, co se ještě vynáší, auta pryč z ulice před domem. Zjistit, které pokoje mají okna do zahrady, ty točit první</span></label><span class="rf"><span class="p x">PŘÍPRAVA</span></span></div>
+<div class="sl" data-id="r3"><label><input type="checkbox" data-id="r3"><span class="n">3</span><span class="tx">Zeptat se Svoreně: výměra celého pozemku (st. 1763 = 310 m², která zahrada patří k domu?), cena ve filmu ano/ne, logo v křivkách</span></label><span class="rf"><span class="p x">PŘÍPRAVA</span></span></div>
+<div class="sl" data-id="r4"><label><input type="checkbox" data-id="r4"><span class="n">4</span><span class="tx">Okna a prosklená stěna zimní zahrady čisté, světla v pokojích zhasnout, záclony pryč nebo stažené</span></label><span class="rf"><span class="p x">PŘÍPRAVA</span></span></div>
+<div class="blk"><span class="bt">13:10</span><span class="bk">Zimní zahrada a pokoje do zahrady</span><span class="tag n">DŘÍV, NEŽ DO NICH ZASVÍTÍ</span></div>
+<div class="sl" data-id="r5"><label><input type="checkbox" data-id="r5"><span class="n">5</span><span class="tx">Zimní zahrada celek: stativ 15 s bez pohybu, prázdná, nikdo v záběru (VIZ 1)</span></label><span class="rf"><span class="p s">STATIV</span><i>F/4</i></span></div>
+<div class="sl" data-id="r6"><label><input type="checkbox" data-id="r6"><span class="n">6</span><span class="tx">Stejné místo jako řádek 5: pomalá jízda 10 s (proměna prázdná → zařízená)</span></label><span class="rf"><span class="p s">STATIV</span><i>F/4</i></span></div>
+<div class="sl" data-id="r7"><label><input type="checkbox" data-id="r7"><span class="n">7</span><span class="tx">Prosklená stěna → pohled ven na zahradu se studnou, gimbal 10 s</span></label><span class="rf"><span class="p k">GIMBAL</span><i>F/4</i></span></div>
+<div class="sl" data-id="r8"><label><input type="checkbox" data-id="r8"><span class="n">8</span><span class="tx">Kachlová kamna: detail 3 s + čistá zeď vedle kamen 6 s (titulek ZIMNÍ ZAHRADA)</span></label><span class="rf"><span class="p s">STATIV</span><i>F/4</i></span></div>
+<div class="sl" data-id="r9"><label><input type="checkbox" data-id="r9"><span class="n">9</span><span class="tx">Pokoje s okny do zahrady (podle obchůzky): jejich VIZ záběry z řádků níž točit teď</span></label><span class="rf"><span class="p x">PŘÍPRAVA</span></span></div>
+<div class="sl" data-id="r10"><label><input type="checkbox" data-id="r10"><span class="n">10</span><span class="tx">Foto HDR: zimní zahrada 3 rámy</span></label><span class="rf"><span class="p f">FOTO</span></span></div>
+<div class="blk"><span class="bt">13:40</span><span class="bk">Přízemí</span><span class="tag ">INTERIÉR</span></div>
+<div class="sl" data-id="r11"><label><input type="checkbox" data-id="r11"><span class="n">11</span><span class="tx">Vstup → chodba s dřevěným obkladem, gimbal průchod 12 s</span></label><span class="rf"><span class="p k">GIMBAL</span><i>F/5</i></span></div>
+<div class="sl" data-id="r12"><label><input type="checkbox" data-id="r12"><span class="n">12</span><span class="tx">Kuchyně celek: stativ 15 s (VIZ 2)</span></label><span class="rf"><span class="p s">STATIV</span><i>F/5</i></span></div>
+<div class="sl" data-id="r13"><label><input type="checkbox" data-id="r13"><span class="n">13</span><span class="tx">Velký pokoj celek: stativ 15 s (VIZ 3); čistá zeď 6 s pro titulek 120 m² · 2 PODLAŽÍ</span></label><span class="rf"><span class="p s">STATIV</span><i>F/5</i></span></div>
+<div class="sl" data-id="r14"><label><input type="checkbox" data-id="r14"><span class="n">14</span><span class="tx">Pokoj s obloukovým oknem: stativ 15 s, okno v záběru (VIZ 4, také do hooku)</span></label><span class="rf"><span class="p s">STATIV</span><i>F/5</i><i>F/1</i></span></div>
+<div class="sl" data-id="r15"><label><input type="checkbox" data-id="r15"><span class="n">15</span><span class="tx">Stejné místo jako řádek 14: pomalá jízda 10 s (proměna do ložnice)</span></label><span class="rf"><span class="p s">STATIV</span><i>F/5</i><i>F/1</i></span></div>
+<div class="sl" data-id="r16"><label><input type="checkbox" data-id="r16"><span class="n">16</span><span class="tx">Koupelna a WC: jen foto do inzerátu</span></label><span class="rf"><span class="p f">FOTO</span></span></div>
+<div class="sl" data-id="r17"><label><input type="checkbox" data-id="r17"><span class="n">17</span><span class="tx">Foto HDR: každá místnost přízemí 2–3 rámy (z fotek pak digitální úklid)</span></label><span class="rf"><span class="p f">FOTO</span></span></div>
+<div class="blk"><span class="bt">14:10</span><span class="bk">Podkroví</span><span class="tag ">INTERIÉR</span></div>
+<div class="sl" data-id="r18"><label><input type="checkbox" data-id="r18"><span class="n">18</span><span class="tx">Schodiště zdola nahoru v jednom záběru, gimbal 12 s (přechod mezi patry)</span></label><span class="rf"><span class="p k">GIMBAL</span><i>F/6</i></span></div>
+<div class="sl" data-id="r19"><label><input type="checkbox" data-id="r19"><span class="n">19</span><span class="tx">Podkrovní pokoj s vikýřem: stativ 15 s (VIZ 5)</span></label><span class="rf"><span class="p s">STATIV</span><i>F/6</i></span></div>
+<div class="sl" data-id="r20"><label><input type="checkbox" data-id="r20"><span class="n">20</span><span class="tx">Druhý podkrovní pokoj: stativ 15 s (VIZ 6)</span></label><span class="rf"><span class="p s">STATIV</span><i>F/6</i></span></div>
+<div class="sl" data-id="r21"><label><input type="checkbox" data-id="r21"><span class="n">21</span><span class="tx">Šikmý strop s čistou plochou 8 s, pomalý pohyb (titulek PODKROVÍ)</span></label><span class="rf"><span class="p s">STATIV</span><i>F/6</i></span></div>
+<div class="sl" data-id="r22"><label><input type="checkbox" data-id="r22"><span class="n">22</span><span class="tx">Foto HDR: každá místnost podkroví 2–3 rámy</span></label><span class="rf"><span class="p f">FOTO</span></span></div>
+<div class="blk"><span class="bt">14:30</span><span class="bk">Zahrada ve slunci</span><span class="tag d">SLUNCE ZE JZ, NÍZKO</span></div>
+<div class="sl" data-id="r23"><label><input type="checkbox" data-id="r23"><span class="n">23</span><span class="tx">HERO verze zahrada: dron 3/4 pohled na dům ze zahrady, 5 s statický rám + 10 s pomalý pohyb (VIZ 7)</span></label><span class="rf"><span class="p h">DRON</span><i>F/3</i><i>F/1</i></span></div>
+<div class="sl" data-id="r24"><label><input type="checkbox" data-id="r24"><span class="n">24</span><span class="tx">Dron nízko nad zahradou k domu, 10 s, 3 pokusy (také do hooku)</span></label><span class="rf"><span class="p h">DRON</span><i>F/3</i><i>F/1</i></span></div>
+<div class="sl" data-id="r25"><label><input type="checkbox" data-id="r25"><span class="n">25</span><span class="tx">Trávník kolmo shora, pomalý přelet 10 s (titulek ZAHRADA ZA DOMEM leží na trávě)</span></label><span class="rf"><span class="p h">DRON</span><i>F/3</i></span></div>
+<div class="sl" data-id="r26"><label><input type="checkbox" data-id="r26"><span class="n">26</span><span class="tx">Pozemek kolmo shora, pomalá rotace 10 s</span></label><span class="rf"><span class="p h">DRON</span><i>F/3</i></span></div>
+<div class="sl" data-id="r27"><label><input type="checkbox" data-id="r27"><span class="n">27</span><span class="tx">Ze země: zahradní strana domu a zimní zahrada zvenku, gimbal 3 záběry po 8 s</span></label><span class="rf"><span class="p k">GIMBAL</span><i>F/3</i></span></div>
+<div class="sl" data-id="r28"><label><input type="checkbox" data-id="r28"><span class="n">28</span><span class="tx">Studna a stromy: detaily po 3 s</span></label><span class="rf"><span class="p s">STATIV</span><i>F/3</i></span></div>
+<div class="sl" data-id="r29"><label><input type="checkbox" data-id="r29"><span class="n">29</span><span class="tx">Foto z dronu: dům ze 4 stran, zahrada, pozemek shora. Foto ze země: zahradní strana</span></label><span class="rf"><span class="p f">FOTO</span></span></div>
+<div class="blk"><span class="bt">15:15</span><span class="bk">Uliční strana</span><span class="tag n">STÍN, ROVNOMĚRNĚ</span></div>
+<div class="sl" data-id="r30"><label><input type="checkbox" data-id="r30"><span class="n">30</span><span class="tx">HERO verze ulice: stativ 3/4 pohled z ulice, 5 s statický rám, žádná auta ani lidi (VIZ 7)</span></label><span class="rf"><span class="p s">STATIV</span><i>F/7</i><i>F/3</i></span></div>
+<div class="sl" data-id="r31"><label><input type="checkbox" data-id="r31"><span class="n">31</span><span class="tx">Uliční fasáda frontálně, stativ 8 s</span></label><span class="rf"><span class="p s">STATIV</span><i>F/7</i></span></div>
+<div class="sl" data-id="r32"><label><input type="checkbox" data-id="r32"><span class="n">32</span><span class="tx">Příjezd ulicí První k domu, gimbal 10 s</span></label><span class="rf"><span class="p k">GIMBAL</span><i>F/7</i></span></div>
+<div class="sl" data-id="r33"><label><input type="checkbox" data-id="r33"><span class="n">33</span><span class="tx">Foto: uliční strana 2–3 rámy</span></label><span class="rf"><span class="p f">FOTO</span></span></div>
+<div class="blk"><span class="bt">15:35</span><span class="bk">Dron nad Loděnicemi</span><span class="tag d">POSLEDNÍ, DO 16:00</span></div>
+<div class="sl" data-id="r34"><label><input type="checkbox" data-id="r34"><span class="n">34</span><span class="tx">Obec vysoko v nízkém slunci, pomalý nájezd k ulici První, 15 s (titulek LODĚNICE nad střechami)</span></label><span class="rf"><span class="p h">DRON</span><i>F/2</i></span></div>
+<div class="sl" data-id="r35"><label><input type="checkbox" data-id="r35"><span class="n">35</span><span class="tx">Stoupání od domu nad Loděnice, 15 s, 3 pokusy (místo pro logo PORTA INVEST ve 3D)</span></label><span class="rf"><span class="p h">DRON</span><i>F/8</i></span></div>
+<div class="sl" data-id="r36"><label><input type="checkbox" data-id="r36"><span class="n">36</span><span class="tx">Foto z dronu: panorama Loděnic s domem</span></label><span class="rf"><span class="p f">FOTO</span></span></div>
+<div class="sl" data-id="r37"><label><input type="checkbox" data-id="r37"><span class="n">37</span><span class="tx">Kontrola: VIZ 1–6 mají 15 s ze stativu, hero má obě verze (23 + ulice). Co nevyšlo, dotočit</span></label><span class="rf"><span class="p x">PŘÍPRAVA</span></span></div>
+<div class="blk"><span class="bt">16:00</span><span class="bk">Konec</span></div></div></section>
+<section class="pnl" data-tab="F"><div class="eyebrow">Loděnice · varianta B · čt 29. 10. od 13:00</div>
+<h2>Film · RD Loděnice · cca 90 s</h2>
+<p class="oco">Bez komentáře, příběh nesou záběry a titulky v barvách a s logem PORTA INVEST. Šest pokojů a dům zvenku se v jednom záběru promění do vizualizace. Pořadí ve filmu; natáčí se podle světla (Shotlist).</p>
+<div class="meta"><span>16:9</span><span>4K, 25 fps</span><span>bez komentáře</span><span>titulky v prostoru</span></div>
+<div class="kap"><div class="noimg"></div><div><h3><span class="kn">1</span>Hook <span class="tc">0:00–0:06</span></h3><p>Tři nejsilnější záběry rychle za sebou: dron nad zahradou, pokoj s obloukovým oknem se zařídí, dům v opravené podobě.</p><div class="say"><span class="who">Titulek</span>RODINNÝ DŮM SE ZAHRADOU · LODĚNICE</div><p class="nat"><b>Natočit:</b> <span class="ref" data-r="14">→ řádky 14, 15, 23, 24</span></p></div></div>
+<div class="kap"><div class="noimg"></div><div><h3><span class="kn">2</span>Loděnice z dronu <span class="tc">0:06–0:16</span></h3><p>Obec v nízkém slunci, pomalé přiblížení k ulici První.</p><div class="say"><span class="who">Titulek</span>LODĚNICE · okres Beroun (stojí nad střechami)</div><p class="nat"><b>Natočit:</b> <span class="ref" data-r="34">→ řádky 34</span></p></div></div>
+<div class="kap"><div class="noimg"></div><div><h3><span class="kn">3</span>Dům a zahrada <span class="tc">0:16–0:28</span> <span class="tag u">VIZ 7</span></h3><p>Dron nad pozemkem, zahradní strana ve slunci, studna a stromy. Dům se v jednom záběru změní v opravený.</p><div class="say"><span class="who">Titulek</span>ZAHRADA ZA DOMEM (leží na trávníku)</div><p class="nat"><b>Natočit:</b> <span class="ref" data-r="23">→ řádky 23, 24, 25, 26, 27, 28, 30</span></p></div></div>
+<div class="kap"><img src="img/vz1.jpg" alt=""><div><h3><span class="kn">4</span>Zimní zahrada <span class="tc">0:28–0:38</span> <span class="tag u">VIZ 1</span></h3><p>Prosklená stěna a kachlová kamna, pohled ven na zahradu. Prolnutí do zařízené.</p><div class="say"><span class="who">Titulek</span>ZIMNÍ ZAHRADA · kachlová kamna (na zdi vedle kamen)</div><p class="nat"><b>Natočit:</b> <span class="ref" data-r="5">→ řádky 5, 6, 7, 8</span></p></div></div>
+<div class="kap"><img src="img/vz4.jpg" alt=""><div><h3><span class="kn">5</span>Přízemí <span class="tc">0:38–0:55</span> <span class="tag u">VIZ 2, 3, 4</span></h3><p>Chodba s dřevěným obkladem, kuchyně, velký pokoj, pokoj s obloukovým oknem. Kuchyně a oba pokoje se prolnou do zařízených.</p><div class="say"><span class="who">Titulek</span>120 m² · 2 PODLAŽÍ (na zdi)</div><p class="nat"><b>Natočit:</b> <span class="ref" data-r="11">→ řádky 11, 12, 13, 14, 15</span></p></div></div>
+<div class="kap"><img src="img/vz5.jpg" alt=""><div><h3><span class="kn">6</span>Podkroví <span class="tc">0:55–1:08</span> <span class="tag u">VIZ 5, 6</span></h3><p>Schodiště nahoru a dva pokoje pod šikmými stropy, oba se prolnou do zařízených.</p><div class="say"><span class="who">Titulek</span>PODKROVÍ (na šikmém stropě)</div><p class="nat"><b>Natočit:</b> <span class="ref" data-r="18">→ řádky 18, 19, 20, 21</span></p></div></div>
+<div class="kap"><div class="noimg"></div><div><h3><span class="kn">7</span>Uliční strana <span class="tc">1:08–1:20</span></h3><p>Dům z ulice v rovnoměrném stínu, příjezd ulicí První.</p><div class="say"><span class="who">Titulek</span>pozemek / cena, jen když je pošlou</div><p class="nat"><b>Natočit:</b> <span class="ref" data-r="30">→ řádky 30, 31, 32</span></p></div></div>
+<div class="kap"><div class="noimg"></div><div><h3><span class="kn">8</span>Závěr <span class="tc">1:20–1:30</span></h3><p>Dron stoupá nad Loděnice, logo stojí nad střechami, koncová karta s kontaktem makléře.</p><div class="say"><span class="who">Titulek</span>logo PORTA INVEST ve 3D nad obcí → karta Tomáš Svoreň · +420 734 441 455</div><p class="nat"><b>Natočit:</b> <span class="ref" data-r="35">→ řádky 35</span></p></div></div>
+</section>
+<section class="pnl" data-tab="V"><div class="eyebrow">Loděnice · varianta B</div><h2>7 vizualizací</h2>
+<p class="oco">Každá jako video do filmu i jako statický obrázek do inzerátu. Styl světlý venkovský: dřevo, bílá, len. Fotky jsou z 21. 10., dnes má být dům prázdný. Ze stativu 15 s bez pohybu, nikdo v záběru.</p>
+<div class="kap"><img src="img/vz1.jpg" alt=""><div><h3><span class="tag u">VIZ 1</span> Zimní zahrada</h3><p>posezení s křesly a rostlinami, kamna zůstanou</p><p class="nat"><b>Natočit:</b> <span class="ref" data-r="5">→ řádky 5</span></p></div></div>
+<div class="kap"><img src="img/vz2.jpg" alt=""><div><h3><span class="tag u">VIZ 2</span> Kuchyně</h3><p>nová linka a jídelní stůl</p><p class="nat"><b>Natočit:</b> <span class="ref" data-r="12">→ řádky 12</span></p></div></div>
+<div class="kap"><img src="img/vz3.jpg" alt=""><div><h3><span class="tag u">VIZ 3</span> Velký pokoj</h3><p>obývák s pohovkou a knihovnou</p><p class="nat"><b>Natočit:</b> <span class="ref" data-r="13">→ řádky 13</span></p></div></div>
+<div class="kap"><img src="img/vz4.jpg" alt=""><div><h3><span class="tag u">VIZ 4</span> Pokoj s obloukovým oknem</h3><p>ložnice, okno je hlavní motiv</p><p class="nat"><b>Natočit:</b> <span class="ref" data-r="14">→ řádky 14</span></p></div></div>
+<div class="kap"><img src="img/vz5.jpg" alt=""><div><h3><span class="tag u">VIZ 5</span> Podkrovní pokoj s vikýřem</h3><p>dětský pokoj</p><p class="nat"><b>Natočit:</b> <span class="ref" data-r="19">→ řádky 19</span></p></div></div>
+<div class="kap"><img src="img/vz6.jpg" alt=""><div><h3><span class="tag u">VIZ 6</span> Podkrovní pokoj</h3><p>pracovna nebo pokoj pro hosty</p><p class="nat"><b>Natočit:</b> <span class="ref" data-r="20">→ řádky 20</span></p></div></div>
+<div class="kap"><div class="noimg"></div><div><h3><span class="tag u">VIZ 7</span> Dům zvenku · hero</h3><p>po opravě: omítka, okna, upravená zahrada; tvar, střecha a okna beze změny. Točíme 2 verze (zahrada + ulice), vybereme lepší</p><p class="nat"><b>Natočit:</b> <span class="ref" data-r="23">→ řádky 23, 30</span></p></div></div>
+</section>
+<p class="foot noprint">Interní podklad FrantišekDron · RD První 29, Loděnice · varianta B · 29. 10. 2026. Odškrtnutí se ukládá v tomto prohlížeči.</p>
+</div>
+<script>
+(function(){
+  var K='fd_lodenice_B_natoceni', st={};
+  try{st=JSON.parse(localStorage.getItem(K)||'{}')}catch(e){}
+  var tabs=[].slice.call(document.querySelectorAll('.tabs button')), pn=[].slice.call(document.querySelectorAll('.pnl'));
+  function show(id){tabs.forEach(function(b){b.classList.toggle('on',b.dataset.t===id)});pn.forEach(function(p){p.classList.toggle('on',p.dataset.tab===id)});try{localStorage.setItem(K+'_tab',id)}catch(e){};window.scrollTo(0,0)}
+  tabs.forEach(function(b){b.addEventListener('click',function(){show(b.dataset.t)})});
+  var t0='SL'; try{t0=localStorage.getItem(K+'_tab')||'SL'}catch(e){}
+  if(!document.querySelector('[data-tab="'+t0+'"]'))t0='SL';
+  show(t0);
+  document.querySelectorAll('.ref').forEach(function(r){r.style.cursor='pointer';r.addEventListener('click',function(){show('SL');var row=document.querySelector('.sl[data-id="r'+r.dataset.r+'"]');if(row)window.scrollTo(0,row.getBoundingClientRect().top+window.scrollY-70)})});
+  var bx=[].slice.call(document.querySelectorAll('.sl input'));
+  function prog(){var d=bx.filter(function(x){return x.checked}).length;document.getElementById('prog').textContent=d+' / '+bx.length+' hotovo'}
+  bx.forEach(function(x){
+    x.checked=!!st[x.dataset.id]; x.closest('.sl').classList.toggle('done',x.checked);
+    x.addEventListener('change',function(){if(x.checked)st[x.dataset.id]=1;else delete st[x.dataset.id];x.closest('.sl').classList.toggle('done',x.checked);try{localStorage.setItem(K,JSON.stringify(st))}catch(e){};prog()});
+  });
+  var rs=document.getElementById('reset'); if(rs)rs.addEventListener('click',function(){if(confirm('Odškrtnout všechno?')){st={};try{localStorage.removeItem(K)}catch(e){};bx.forEach(function(x){x.checked=false;x.closest('.sl').classList.remove('done')});prog()}});
+  prog();
+})();
+</script>
+</body>
+</html>
